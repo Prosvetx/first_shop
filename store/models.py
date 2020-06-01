@@ -65,9 +65,6 @@ class OrderItem(models.Model):
         total = self.quantity * self.product.price
         return total
 
-    def plus_one(self):
-        self.quantity += 1
-
 
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
