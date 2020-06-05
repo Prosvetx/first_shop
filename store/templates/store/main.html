@@ -11,10 +11,11 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
+    <link rel="shortcut icon" type="image/png" href="{% static 'fav.png' %}">
     <script type="text/javascript">
         var user = "{{ request.user }}"
 
-        function getCookie(name) {
+        function getToken(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie !== '') {
                 var cookies = document.cookie.split(';');
@@ -31,7 +32,30 @@
         }
 
         var csrftoken = getCookie('csrftoken');
+
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(";");
+
+            for(var i=0; i< cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
+
+                if(name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1])
+                }
+            }
+            return null;
+        }
+        var cart = JSON.parse(getCookie('cart'))
+        if(cart == undefined) {
+            cart = {}
+            console.log('Cart was created!')
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+        }
+
+        console.log('Cart:', cart)
     </script>
+
+
 
 </head>
 <body>
