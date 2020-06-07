@@ -1,0 +1,25 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="card text-center">
+        <div class="card-header">
+            Featured
+        </div>
+        <div class="card-body">
+            <img style="width: 70%; height: 80%" src="{{ product.imageURL }}">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">Combining courage, faith, wisdom and wonder into an inspiring tale of self-discovery, The Mount of Olives takes readers for an emotional ride through the life of a boy who's search for better becomes a discovery of something extraordinary. Michael Ivanov's masterpiece tells the story of Felix, the Roman boy who despite all opposition, yearns to gain a worldly treasure. His journey will lead him to riches far different-and far more satisfying-than he ever imagined. Felix's quest teaches us about the essential wisdom of listening to our hearts, of recognizing opportunity and learning the golden principles strewn along life's path, and, most importantly, to follow our dreams.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
+
+    <!--{{ product.name }}
+    {{ product.imageURL }}
+    {{ product.price }}
+    -->
+
+{% endblock %}
