@@ -53,6 +53,7 @@ function updateUserOrder(productId, action) {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
+
         },
         body: JSON.stringify({'productId': productId, 'action': action})
     })

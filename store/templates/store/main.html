@@ -36,17 +36,18 @@
         function getCookie(name) {
             var cookieArr = document.cookie.split(";");
 
-            for(var i=0; i< cookieArr.length; i++) {
+            for (var i = 0; i < cookieArr.length; i++) {
                 var cookiePair = cookieArr[i].split("=");
 
-                if(name == cookiePair[0].trim()) {
+                if (name == cookiePair[0].trim()) {
                     return decodeURIComponent(cookiePair[1])
                 }
             }
             return null;
         }
+
         var cart = JSON.parse(getCookie('cart'))
-        if(cart == undefined) {
+        if (cart == undefined) {
             cart = {}
             console.log('Cart was created!')
             document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
@@ -54,13 +55,9 @@
 
         console.log('Cart:', cart)
     </script>
-
-
-
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="{% url 'store' %}">EShop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
